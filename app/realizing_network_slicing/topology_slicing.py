@@ -11,13 +11,8 @@ class TrafficSlicing(app_manager.RyuApp):
     def __init__(self, *args, **kwargs):
         super(TrafficSlicing, self).__init__(*args, **kwargs)
 
-        # out_port = slice_to_port[dpid][in_port]
-        self.slice_to_port = {
-            1: {1: 3, 3: 1, 2: 4, 4: 2},
-            4: {1: 3, 3: 1, 2: 4, 4: 2},
-            2: {1: 2, 2: 1},
-            3: {1: 2, 2: 1},
-        }
+        # out_port => slice_to_port[dpid][in_port] -> { dpid: {in_eth:out_eth, ...}, ...}
+       
 
     @set_ev_cls(ofp_event.EventOFPSwitchFeatures, CONFIG_DISPATCHER)
     def switch_features_handler(self, ev):
