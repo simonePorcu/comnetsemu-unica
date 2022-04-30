@@ -23,6 +23,7 @@ RUN apt-get -qy update && \
 	iputils-ping \
 	net-tools \
 	stress-ng \
+	netcat \
 	tcpdump \
 	telnet && \
 	rm -rf /var/lib/apt/lists/*
