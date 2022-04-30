@@ -17,16 +17,13 @@ class TrafficSlicing(app_manager.RyuApp):
     def __init__(self, *args, **kwargs):
         super(TrafficSlicing, self).__init__(*args, **kwargs)
 
-        # outport = self.mac_to_port[dpid][mac_address]
-        self.mac_to_port = {
-            1: {"00:00:00:00:00:01": 3, "00:00:00:00:00:02": 4},
-            4: {"00:00:00:00:00:03": 3, "00:00:00:00:00:04": 4},
-        }
+        # outport => self.mac_to_port[dpid][mac_address] -> {dpid: {"00:00:00:00:00:01": port, ...}, ...}
+        # inserire codice
         self.slice_TCport = 9999
 
-        # outport = self.slice_ports[dpid][slicenumber]
-        self.slice_ports = {1: {1: 1, 2: 2}, 4: {1: 1, 2: 2}}
-        self.end_swtiches = [1, 4]
+        # outport => self.slice_ports[dpid][slicenumber] {dpid: {slice: port, ...}, ...}
+        
+        self.end_swtiches = [] #inserire end_switches
 
     @set_ev_cls(ofp_event.EventOFPSwitchFeatures, CONFIG_DISPATCHER)
     def switch_features_handler(self, ev):
