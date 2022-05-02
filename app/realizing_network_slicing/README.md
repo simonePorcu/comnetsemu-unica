@@ -43,7 +43,7 @@ You can simple run the emulation applications with following commands in ./app/n
 
 1. Enabling Ryu controller to load the application and to run background:
     ```bash
-    $ ryu-manager topology_slicing.py &
+    $ ryu-manager topology_slicing.py
     ```
 2. Starting the network with Mininet:
     ```bash
